@@ -20,6 +20,8 @@ class CreateBooksTable extends Migration {
 
 			$table->string('name');
 
+            $table->boolean('access');
+
 			$table->timestamps();
 
 			$table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');

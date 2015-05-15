@@ -15,3 +15,11 @@
     {!! Form::close() !!}
 
 @endsection
+
+@section('footer')
+    <script>
+        $(function () {
+            $("[name='my-checkbox']").bootstrapSwitch();
+        });
+    </script>
+@endsection

@@ -10,4 +10,9 @@
             @endif
         </div>
     </div>
+
+    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+        {!! Form::checkbox('access', null, 0, ['name' => 'my-checkbox']) !!}
+        {{--<input type="checkbox" name="my-checkbox" checked>--}}
+    </div>
 </div>
