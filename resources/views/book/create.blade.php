@@ -19,7 +19,7 @@
 @section('footer')
     <script>
         $(function () {
-            $("[name='my-checkbox']").bootstrapSwitch();
+            $("[name='access']").bootstrapSwitch();
         });
     </script>
 @endsection

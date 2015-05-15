@@ -99,7 +99,10 @@ class BookController extends Controller {
 	 */
 	public function update(BookRequest $request, Book $book)
 	{
-		$book->update($request->all());
+		$book->update([
+            'name' => $request->get('name'),
+            'access' => $request->get('access'),
+        ]);
 
 		return redirect('books');
 	}

@@ -15,3 +15,11 @@
     {!! Form::close() !!}
 
 @endsection
+
+@section('footer')
+    <script>
+        $(function () {
+            $("[name='access']").bootstrapSwitch();
+        });
+    </script>
+@endsection
