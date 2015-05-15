@@ -15,11 +15,10 @@ class HomeController extends Controller {
 	|
 	*/
 
-	/**
-	 * Create a new controller instance.
-	 *
-	 * @return void
-	 */
+    /**
+     * Create a new controller instance.
+     *
+     */
 	public function __construct()
 	{
 		$this->middleware('auth');
@@ -34,13 +33,29 @@ class HomeController extends Controller {
 	{
 		$books = \Auth::user()->books()->lists('name', 'id');
 
+        $books['0'] = 'Public';
+
 		return view('home', compact('books'));
 	}
 
 	public function getRandomNote()
 	{
-		$articles = Book::find(\Request::get('book_id'))->articles()->get();
+        if(\Request::get('book_id') == 0) {
+            $books = Book::whereAccess(1)->get();
 
+            foreach ($books as $book) {
+                $articles_collection[] = $book->articles()->get();
+            }
+
+            foreach ($articles_collection as $collection) {
+                foreach ($collection as $article) {
+                    $articles[] = $article;
+                }
+
+            }
+        } else {
+            $articles = Book::find(\Request::get('book_id'))->articles()->get();
+        }
 
 		if(\Request::ajax()) {
 			return $articles;
