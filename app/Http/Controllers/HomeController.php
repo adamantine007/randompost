@@ -31,6 +31,8 @@ class HomeController extends Controller {
 	 */
 	public function index()
 	{
+        dd('check autoupload after commit/push request');
+
 		$books_tmp = \Auth::user()->books()->lists('name', 'id');
 
         $books['0'] = 'Public';
