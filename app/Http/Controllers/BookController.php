@@ -17,7 +17,6 @@ class BookController extends Controller {
 	 */
 	public function index()
 	{
-//		$books = Book::latest()->get();
 		$books = \Auth::user()->books()->latest()->get();
 
 		return view('book.index', compact('books'));
@@ -44,9 +43,6 @@ class BookController extends Controller {
 		sort($numbers);
 
 		$book_name = 'Book ' . (last($numbers) + 1);
-//		dd($book_name);
-
-//		$book_name = 'Book ' . (substr(last(last($books))->name, 4) + 1);
 
 		return view('book.create', compact('book_name'));
 	}
@@ -133,113 +129,5 @@ class BookController extends Controller {
 
 		return $articles;
 	}
-
-//	private function formatTextWithTag($text)
-//	{
-////		dd(strip_tags($text));
-//		return strip_tags($text);
-//
-//		$arrayOfTags = $this->getAllVariants();
-//
-//		dd($arrayOfTags);
-//
-//		$text = str_replace($arrayOfTags, '', $text);
-//
-//		dd($text);
-//		return $text;
-//	}
-//
-//	private function getAllVariants()
-//	{
-//		$tags = $this->getAllTags();
-//
-//
-//		$allVariants = [];
-//		foreach ($tags as $tag) {
-//			$allVariants[] = $this->getDifferentVarietyOfTag($tag);
-//		}
-//
-//		$result = [];
-//		foreach ($allVariants as $variants) {
-//			foreach ($variants as $variant) {
-//				$result[] = $variant;
-//			}
-//		}
-//
-////		dd($result);
-//
-//		return $result;
-//	}
-//
-//	private function getAllTags()
-//	{
-//		return [
-//			'p',
-//			'strong',
-//			'u',
-//			'em',
-//			's',
-//			'ol',
-//			'ul',
-//			'li',
-//			'h1',
-//			'h2',
-//			'h3',
-//			'h4',
-//			'h5',
-//			'h6',
-//			'pre',
-//			'address',
-//			'div'
-//		];
-//	}
-//
-//	private function getDifferentVarietyOfTag($tag)
-//	{
-//		$openTag = '<' . $tag . '>';
-//		$closeTag = '</' . $tag . '>';
-//
-//		$resultSet = [];
-//
-//		$setOfVariants[] = $this->getDifferentSubstrFromEnd($openTag);
-//		foreach ($setOfVariants as $variants) {
-//			foreach ($variants as $variant) {
-//				$resultSet[] = $variant;
-//			}
-//		}
-//
-//
-//		$setOfVariants = [];
-//		$setOfVariants[] = $this->getDifferentSubstrFromStart($closeTag);
-//		foreach ($setOfVariants as $variants) {
-//			foreach ($variants as $variant) {
-//				$resultSet[] = $variant;
-//			}
-//		}
-//
-//		return $resultSet;
-//	}
-//
-//	private function getDifferentSubstrFromStart($tag)
-//	{
-//		$result = [];
-//
-//		for($i = 1; $i <= strlen($tag); $i++) {
-//			$result[] = substr($tag, 0, $i);
-//		}
-//
-//		return $result;
-//	}
-//
-//	private function getDifferentSubstrFromEnd($tag)
-//	{
-//		$result = [];
-//
-//		for($i = strlen($tag); $i > 0; $i--) {
-//			$result[] = substr($tag, 0, $i);
-//		}
-//
-//		return $result;
-//	}
 
 }

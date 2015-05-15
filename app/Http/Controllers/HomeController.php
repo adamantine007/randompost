@@ -31,11 +31,15 @@ class HomeController extends Controller {
 	 */
 	public function index()
 	{
-		$books = \Auth::user()->books()->lists('name', 'id');
+		$books_tmp = \Auth::user()->books()->lists('name', 'id');
 
         $books['0'] = 'Public';
+        foreach ($books_tmp as $book) {
+            $books[] = $book;
+        }
 
-		return view('home', compact('books'));
+
+        return view('home', compact('books'));
 	}
 
 	public function getRandomNote()
