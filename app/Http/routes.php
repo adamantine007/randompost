@@ -11,15 +11,13 @@
 |
 */
 
-
-
 Route::get('/', 'HomeController@index');
 Route::post('/', 'HomeController@getRandomNote');
 
-//Route::get('home', 'HomeController@index');
 
 Route::resource('articles', 'ArticleController');
 Route::resource('books', 'BookController');
+Route::post('books/{books}/access-change', 'BookController@changeAccess');
 
 Route::controllers([
 	'auth' => 'Auth\AuthController',

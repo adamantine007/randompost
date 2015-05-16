@@ -130,4 +130,17 @@ class BookController extends Controller {
 		return $articles;
 	}
 
+    public function changeAccess(Book $book){
+
+        if(\Request::ajax()) {
+            $book->update([
+                'access' => \Request::get('access'),
+            ]);
+
+            return ';)';
+        }
+
+        return view('errors.503');
+    }
+
 }
