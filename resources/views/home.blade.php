@@ -13,13 +13,11 @@
 
 		</div>
 
-		<div class="fixedEditButtonHome">
-			<a href="/articles/">
-				<i class="fa fa-pencil-square-o fa-3x editIconInLinkGroupButton"></i>
-			</a>
-		</div>
-
-
+        <div class="fixedEditButtonHome">
+            <a href="/articles/">
+                <i class="fa fa-pencil-square-o fa-3x editIconInLinkGroupButton"></i>
+            </a>
+        </div>
 
 		{!! Form::open(['action' => 'HomeController@getRandomNote']) !!}
 

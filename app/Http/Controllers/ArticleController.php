@@ -87,6 +87,10 @@ class ArticleController extends Controller {
 	 */
 	public function edit(Article $article)
 	{
+        if(Auth::id() != $article['user_id']) {
+            return back();
+        }
+
 		$books = \Auth::user()->books()->lists('name', 'id');
 
 		$book_id = $article->book_id;
