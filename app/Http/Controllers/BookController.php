@@ -55,9 +55,9 @@ class BookController extends Controller {
 	 */
 	public function store(BookRequest $request)
 	{
-		\Auth::user()->books()->save(new Book($request->all()));
+		$book = \Auth::user()->books()->save(new Book($request->all()));
 
-		return redirect('books');
+		return redirect('/books/' . $book['id']);
 	}
 
 	/**
