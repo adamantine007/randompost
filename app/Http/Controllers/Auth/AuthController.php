@@ -7,7 +7,7 @@ use Illuminate\Foundation\Auth\AuthenticatesAndRegistersUsers;
 
 class AuthController extends Controller {
 
-	protected $redirectTo = '/articles';
+	protected $redirectTo = '/books/create';
 
 	/*
 	|--------------------------------------------------------------------------
