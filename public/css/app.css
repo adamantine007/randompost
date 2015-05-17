@@ -25,19 +25,18 @@ body {
   margin-top: 50px;
 }
 
-.fixedSelectHome .select2{
-  width: 554px;
+.fixedSelectHome .select2 {
+  margin-top: 3px;
+  width: 408px;
 }
 
 .fixedDiceButtonHome {
-  margin-top: 80px;
+  margin-top: 85px;
 }
-
-
 
 .fixedEditButtonHome {
   position: fixed;
-  top: 247px;
+  top: 250px;
   /*bottom: 0;*/
   right: 0;
   z-index: 2;
@@ -54,7 +53,7 @@ body {
 }
 
 .article-col {
-  margin-top: 198px;
+  margin-top: 200px;
 }
 
 .btn-default i {
@@ -6425,7 +6424,7 @@ label,
   }
 
   .fixedSelectHome .select2{
-    width: 616px;
+    width: 455px;
   }
 
   #next-btn {
@@ -6439,7 +6438,7 @@ label,
   }
 
   .fixedSelectHome .select2{
-    width: 595px;
+    width: 438px;
   }
 
   #next-btn {
@@ -6454,6 +6453,10 @@ label,
 }
 
 @media (max-width: 767px) {
+
+  .fixedSelectHome .select2{
+    width: 339px;
+  }
 
   .col-lg-1, .col-md-1, .col-sm-1, .col-xs-1 {
     padding-right: 2px;
@@ -6497,7 +6500,7 @@ label,
   }
 
   .fixedSelectHome .select2{
-    width: 300px;
+    width: 190px;
   }
 
   #next-btn {

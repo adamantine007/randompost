@@ -19,9 +19,17 @@
 			</a>
 		</div>
 
+
+
 		{!! Form::open(['action' => 'HomeController@getRandomNote']) !!}
 
-			<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+            <div class="col-xs-4 col-sm-3 col-md-3 col-lg-3">
+                <div class="fixed fixedSelectHome">
+                    {!! Form::checkbox('access', 1, 0) !!}
+                </div>
+            </div>
+
+			<div class="col-xs-8 col-sm-9 col-md-9 col-lg-9">
 				<div class="fixed fixedSelectHome">
 					@if( ! empty($article))
 						{!! Form::select('book_id', $books, $article->book_id, ['class' => 'form-control', 'id' => 'book']) !!}
@@ -61,6 +69,8 @@
 @section('footer')
 	<script>
 		$(function () {
+
+            $("[name='access']").bootstrapSwitch();
 
 			$('#book').select2({
 				theme: "classic"
@@ -121,6 +131,18 @@
 				loadArticles();
 				$('a.btn')[0].href = $('a.btn')[0].href.split('?')[0] + '?book_id=' + $('#book').val();
 			});
+
+            $('input[name="access"]').on('switchChange.bootstrapSwitch', function(event, state) {
+//                console.log(this); // DOM element
+//                console.log(event); // jQuery event
+                console.log(state); // true | false
+
+                if( state) {
+                    $('#book').prop( "disabled", state);
+                } else {
+                    $('#book').prop( "disabled", state);
+                }
+            });
 		});
 	</script>
 @endsection
