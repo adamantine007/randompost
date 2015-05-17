@@ -39,7 +39,7 @@ class HomeController extends Controller {
 	public function getRandomNote()
 	{
         if(\Request::get('book_id') == 0) {
-            $books = Book::whereAccess(1)->get();
+            $books = \Auth::user()->books()->whereAccess(1)->get();
 
             foreach ($books as $book) {
                 $articles_collection[] = $book->articles()->get();

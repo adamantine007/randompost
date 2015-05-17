@@ -80,9 +80,17 @@
 
 			loadArticles();
 
-			function getArticles() {
+			function getArticles(id) {
 				var $_token = "{{ csrf_token() }}";
-				var book_id = $('#book').val();
+                var book_id;
+
+                if (id !== undefined) {
+                    book_id = id;
+                } else {
+                    book_id = $('#book').val();
+                }
+
+                console.log(book_id);
 
 				return $.ajax({
 					type: 'POST',
@@ -91,9 +99,9 @@
 				});
 			}
 
-			function loadArticles() {
-				getArticles().success(function (data) {
-					articles = data;
+			function loadArticles(id) {
+				getArticles(id).success(function (data) {
+					articles = shuffle(data);
 					countOfArticles = articles.length;
 					currentArticle = 0;
 
@@ -133,11 +141,10 @@
 			});
 
             $('input[name="access"]').on('switchChange.bootstrapSwitch', function(event, state) {
-//                console.log(this); // DOM element
-//                console.log(event); // jQuery event
                 console.log(state); // true | false
 
                 if( state) {
+                    loadArticles(0);
                     $('#book').prop( "disabled", state);
                 } else {
                     $('#book').prop( "disabled", state);
