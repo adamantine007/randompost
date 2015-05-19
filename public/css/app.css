@@ -52,8 +52,12 @@ body {
   color: #555555;
 }
 
+.datetime-col {
+    margin-top: 200px;
+    font-size: 0.7em;
+}
 .article-col {
-  margin-top: 200px;
+  margin-top: 7px;
 }
 
 .btn-default i {
@@ -112,10 +116,6 @@ body {
   line-height: 1.7em;
   min-height: 67px;
 }
-
-
-
-
 
 #next-btn {
   /*width: 100%;*/

@@ -47,12 +47,19 @@
 
 
 		@if( ! empty($article))
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 datetime-col">
+                {{ $article->created_at }}
+            </div>
+
 			<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 article-col">
 				<div class="article-bg">
 					{!! $article->body !!}
 				</div>
 			</div>
 		@else
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 datetime-col">
+
+            </div>
 			<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 article-col">
 				<div class="article-bg">
 					<p>Select the book!</p>
@@ -120,6 +127,7 @@
 				currentArticle++;
 
 				$('.article-bg').empty().append(article.body);
+				$('.datetime-col').empty().append(article.created_at);
 			}
 
 			function showNextArticle() {
