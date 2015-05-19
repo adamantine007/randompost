@@ -21,7 +21,7 @@ class HomeController extends Controller {
      */
 	public function __construct()
 	{
-		$this->middleware('auth');
+//		$this->middleware('auth', ['except' => ['index', 'getRandomNote']]);
 	}
 
 	/**
@@ -31,7 +31,13 @@ class HomeController extends Controller {
 	 */
 	public function index()
 	{
-		$books = Book::where('user_id', '=', \Auth::id())->orWhere('id', '=', 0)->lists('name', 'id');
+//        dd(\Auth::user());
+        if(\Auth::user() == null) {
+            $books = Book::where('id', '=', 0)->lists('name', 'id');
+        } else {
+            $books = Book::where('user_id', '=', \Auth::id())->orWhere('id', '=', 0)->lists('name', 'id');
+        }
+
 
         return view('home', compact('books'));
 	}
