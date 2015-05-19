@@ -21,13 +21,13 @@
 
 		{!! Form::open(['action' => 'HomeController@getRandomNote']) !!}
 
-            <div class="col-xs-4 col-sm-3 col-md-3 col-lg-3">
+            <div class="col-xs-6 col-sm-3 col-md-3 col-lg-3">
                 <div class="fixed fixedSelectHome">
-                    {!! Form::checkbox('access', 1, 0) !!}
+                    {!! Form::checkbox('access', 1, 0, ['data-on-text' => 'Public', 'data-off-text' => 'Private']) !!}
                 </div>
             </div>
 
-			<div class="col-xs-8 col-sm-9 col-md-9 col-lg-9">
+			<div class="col-xs-6 col-sm-9 col-md-9 col-lg-9">
 				<div class="fixed fixedSelectHome">
 					@if( ! empty($article))
 						{!! Form::select('book_id', $books, $article->book_id, ['class' => 'form-control', 'id' => 'book']) !!}

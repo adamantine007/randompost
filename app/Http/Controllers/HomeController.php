@@ -31,7 +31,7 @@ class HomeController extends Controller {
 	 */
 	public function index()
 	{
-		$books = \Auth::user()->books()->lists('name', 'id');
+		$books = Book::where('user_id', '=', \Auth::id())->orWhere('id', '=', 0)->lists('name', 'id');
 
         return view('home', compact('books'));
 	}
