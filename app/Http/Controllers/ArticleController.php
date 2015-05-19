@@ -24,8 +24,6 @@ class ArticleController extends Controller {
 
 		$articles = Article::latest()->get();
 
-//		dd($articles);
-
 		return view('article.index', compact('articles'));
 	}
 
