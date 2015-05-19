@@ -1,6 +1,7 @@
 <?php namespace App\Http\Controllers;
 
 use App\Article;
+use App\Book;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
@@ -34,7 +35,8 @@ class ArticleController extends Controller {
 	 */
 	public function create()
 	{
-		$books = \Auth::user()->books()->lists('name', 'id');
+//		$books = \Auth::user()->books()->lists('name', 'id');
+        $books = Book::where('user_id', '=', \Auth::id())->orWhere('id', '=', 0)->lists('name', 'id');
 
 		$book_id = null;
 		if(\Request::get('book_id')) {
