@@ -65,7 +65,8 @@ class ArticleController extends Controller {
 		\Auth::user()->articles()->save($article);
 
         if($request->get('prev_url') == "") {
-            $books = \Auth::user()->books()->lists('name', 'id');
+//            $books = \Auth::user()->books()->lists('name', 'id');
+            $books = Book::where('user_id', '=', \Auth::id())->orWhere('id', '=', 0)->lists('name', 'id');
             return view('home', compact('article', 'books'));
         } else {
             return redirect('/books/' . $article['book_id']);
@@ -97,7 +98,8 @@ class ArticleController extends Controller {
             return back();
         }
 
-		$books = \Auth::user()->books()->lists('name', 'id');
+//		$books = \Auth::user()->books()->lists('name', 'id');
+        $books = Book::where('user_id', '=', \Auth::id())->orWhere('id', '=', 0)->lists('name', 'id');
 
 		$book_id = $article->book_id;
 
@@ -118,7 +120,8 @@ class ArticleController extends Controller {
 		$article->update($request->all());
 
         if($request->get('prev_url') == "") {
-            $books = \Auth::user()->books()->lists('name', 'id');
+//            $books = \Auth::user()->books()->lists('name', 'id');
+            $books = Book::where('user_id', '=', \Auth::id())->orWhere('id', '=', 0)->lists('name', 'id');
             return view('home', compact('article', 'books'));
         } else {
             return redirect('/books/' . $article['book_id']);
