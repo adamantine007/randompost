@@ -10,6 +10,8 @@
             </div>
         </div>
 
+        {!! Form::hidden('prev_url', 'none') !!}
+
         @include('article.partials.form')
 
     {!! Form::close() !!}
@@ -22,6 +24,14 @@
         $(function () {
             $('#book').select2({
                 theme: "classic"
+            });
+
+            $("[name='prev_url']").val(function(i, val) {
+
+                var url = document.referrer.split('/');
+                url = url[url.length - 1];
+
+                return url;
             });
         });
     </script>

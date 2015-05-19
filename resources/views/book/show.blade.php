@@ -2,16 +2,6 @@
 
 @section('content')
 
-    {{--<div class="row">--}}
-        {{--<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">--}}
-
-            {{--<h2 class="h2-head">--}}
-                {{--{{ $book->name }}--}}
-            {{--</h2>--}}
-
-        {{--</div>--}}
-    {{--</div>--}}
-
     <div class="row">
         <div class="col-lg-11 col-md-11 col-sm-11 col-xs-10">
             <h2 class="h2-head">{{ $book->name }}</h2>

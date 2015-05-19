@@ -57,11 +57,12 @@ class ArticleController extends Controller {
 
 		\Auth::user()->articles()->save($article);
 
-
-		$books = \Auth::user()->books()->lists('name', 'id');
-
-//		return view('home', compact('article', 'books'));
-		return redirect('/');
+        if($request->get('prev_url') == "") {
+            $books = \Auth::user()->books()->lists('name', 'id');
+            return view('home', compact('article', 'books'));
+        } else {
+            return redirect('/books/' . $article['book_id']);
+        }
 	}
 
 	/**
@@ -106,15 +107,15 @@ class ArticleController extends Controller {
 	 */
 	public function update(ArticleRequest $request, Article $article)
 	{
-//		dd($request->get('body'));
-
-
-
 		$article['book_id'] = $request->get('book_id');
 		$article->update($request->all());
 
-//		return redirect('articles');
-		return redirect('books/' . $request->get('book_id'));
+        if($request->get('prev_url') == "") {
+            $books = \Auth::user()->books()->lists('name', 'id');
+            return view('home', compact('article', 'books'));
+        } else {
+            return redirect('/books/' . $article['book_id']);
+        }
 	}
 
 	/**
@@ -127,8 +128,6 @@ class ArticleController extends Controller {
 	 */
 	public function destroy(Article $article)
 	{
-//		dd($article);
-
 		$article->delete();
 
 		return back();
