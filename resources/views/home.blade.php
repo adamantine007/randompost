@@ -161,6 +161,7 @@
                     loadArticles(-1);
                     $('#book').prop( "disabled", state);
                 } else {
+                    loadArticles();
                     $('#book').prop( "disabled", state);
                 }
             });
