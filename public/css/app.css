@@ -8,6 +8,12 @@ body {
   margin: 0;
 }
 
+.bg-white {
+    background-color: #ffffff;
+    height: 200px;
+    width: 585px;
+}
+
 .main {
   margin-top: 55px;
 }
@@ -6423,6 +6429,10 @@ label,
     padding: 0 284px;
   }
 
+    .bg-white {
+        width: 645px;
+    }
+
   .fixedSelectHome .select2{
     width: 455px;
   }
@@ -6436,6 +6446,10 @@ label,
   .fixedAddButtonHome {
     padding: 0 273px;
   }
+
+    .bg-white {
+        width: 625px;
+    }
 
   .fixedSelectHome .select2{
     width: 438px;
@@ -6457,8 +6471,12 @@ label,
   .fixedSelectHome .select2{
     width: 339px;
   }
+    .bg-white {
+        width: 625px;
+    }
 
-  .col-lg-1, .col-md-1, .col-sm-1, .col-xs-1 {
+
+    .col-lg-1, .col-md-1, .col-sm-1, .col-xs-1 {
     padding-right: 2px;
     padding-left: 7px;
   }
@@ -6471,6 +6489,13 @@ label,
   .navbar {
     min-height: 43px;
   }
+}
+
+@media (max-width: 578px) {
+    .bg-white {
+        width: 580px;
+    }
+
 }
 
 @media (max-width: 450px) {
@@ -6499,7 +6524,11 @@ label,
     padding: 0 126px;
   }
 
-  .fixedSelectHome .select2{
+    .bg-white {
+        width: 330px;
+    }
+
+    .fixedSelectHome .select2{
     width: 135px;
   }
 
