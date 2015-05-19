@@ -150,6 +150,8 @@ return [
 		'Laracasts\Flash\FlashServiceProvider',
 		'Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider',
 
+        'App\Providers\ViewComposerServiceProvider',
+
 	],
 
 	/*

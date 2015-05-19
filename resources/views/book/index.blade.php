@@ -4,6 +4,24 @@
 
     @include('partials.index-header', ['actionName' => 'BookController@create', 'headTitle' => 'Books'])
 
+    <div class="row">
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+            <h3 class="h3-list">
+                <a href="{{ action('BookController@show', ['id' => $publicBook->id]) }}">
+                    {{ $publicBook->name }}
+                </a>
+            </h3>
+        </div>
+
+        <div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                <hr class="hr-list"/>
+            </div>
+        </div>
+    </div>
+
+
+
     @if(count($books))
 
         @foreach($books as $book)
