@@ -70,6 +70,10 @@
 
             $("[name='access']").bootstrapSwitch();
 
+            if($("[name='access']").prop("checked")) {
+                $('#book').prop( "disabled", true)
+            }
+
 			$('#book').select2({
 				theme: "classic"
 			});
@@ -87,8 +91,6 @@
                 } else {
                     book_id = $('#book').val();
                 }
-
-                console.log(book_id);
 
 				return $.ajax({
 					type: 'POST',
@@ -142,7 +144,7 @@
                 console.log(state); // true | false
 
                 if( state) {
-                    loadArticles(0);
+                    loadArticles(-1);
                     $('#book').prop( "disabled", state);
                 } else {
                     $('#book').prop( "disabled", state);

@@ -38,7 +38,7 @@ class HomeController extends Controller {
 
 	public function getRandomNote()
 	{
-        if(\Request::get('book_id') == 0) {
+        if(\Request::get('book_id') == -1) {
             $books = Book::whereAccess(1)->get();
 
             foreach ($books as $book) {
