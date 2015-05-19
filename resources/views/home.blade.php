@@ -122,13 +122,19 @@
 			};
 
 			function showArticle(article) {
-				$('.fixedEditButtonHome a')[0].href = '/articles/' + articles[currentArticle].id + '/edit';
+                if(article == undefined) {
+                    $('.article-bg').empty();
+                    $('.datetime-col').empty();
+                } else {
+                    $('.fixedEditButtonHome a')[0].href = '/articles/' + articles[currentArticle].id + '/edit';
 
-				currentArticle++;
+                    currentArticle++;
 
-				$('.article-bg').empty().append(article.body);
-				$('.datetime-col').empty().append(article.created_at);
+                    $('.article-bg').empty().append(article.body);
+                    $('.datetime-col').empty().append(article.created_at);
+                }
 			}
+
 
 			function showNextArticle() {
 				if (currentArticle + 1 > countOfArticles) {
