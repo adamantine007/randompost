@@ -2,9 +2,9 @@
 
 @section('content')
 
-	<div class="row">
+	<div class="row" style="margin-top: -5px;">
 
-		<div class="bg-white fixed">
+		<div class="bg-white fixed" style="padding-top: 5px;">
             <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
                 <div class="fixed">
                     <a href="/articles/create" class="btn btn-default btn-block">
