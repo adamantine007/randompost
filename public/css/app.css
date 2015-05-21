@@ -33,7 +33,7 @@ body {
 
 .fixedSelectHome .select2 {
   margin-top: 3px;
-  width: 408px;
+  width: 553px;
 }
 
 .fixedDiceButtonHome {
@@ -6434,7 +6434,7 @@ label,
     }
 
   .fixedSelectHome .select2{
-    width: 455px;
+    width: 616px;
   }
 
   #next-btn {
@@ -6452,7 +6452,7 @@ label,
     }
 
   .fixedSelectHome .select2{
-    width: 438px;
+    width: 593px;
   }
 
   #next-btn {
@@ -6469,7 +6469,7 @@ label,
 @media (max-width: 767px) {
 
   .fixedSelectHome .select2{
-    width: 339px;
+    width: 593px;
   }
     .bg-white {
         width: 625px;
@@ -6529,7 +6529,7 @@ label,
     }
 
     .fixedSelectHome .select2{
-    width: 135px;
+    width: 300px;
   }
 
   #next-btn {

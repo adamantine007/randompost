@@ -22,13 +22,13 @@
 
             {!! Form::open(['action' => 'HomeController@getRandomNote']) !!}
 
-            <div class="col-xs-6 col-sm-3 col-md-3 col-lg-3">
-                <div class="fixed fixedSelectHome">
-                    {!! Form::checkbox('access', 1, 0, ['data-on-text' => 'Public', 'data-off-text' => 'Private']) !!}
-                </div>
-            </div>
+            {{--<div class="col-xs-6 col-sm-3 col-md-3 col-lg-3">--}}
+                {{--<div class="fixed fixedSelectHome">--}}
+                    {{--{!! Form::checkbox('access', 1, 0, ['data-on-text' => 'Public', 'data-off-text' => 'Private']) !!}--}}
+                {{--</div>--}}
+            {{--</div>--}}
 
-            <div class="col-xs-6 col-sm-9 col-md-9 col-lg-9">
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
                 <div class="fixed fixedSelectHome">
                     @if( ! empty($article))
                         {!! Form::select('book_id', $books, $article->book_id, ['class' => 'form-control', 'id' => 'book']) !!}
@@ -77,7 +77,7 @@
 	<script>
 		$(function () {
 
-            $("[name='access']").bootstrapSwitch();
+//            $("[name='access']").bootstrapSwitch();
 
             if($("[name='access']").prop("checked")) {
                 $('#book').prop( "disabled", true)
@@ -156,17 +156,17 @@
 				$('a.btn')[0].href = $('a.btn')[0].href.split('?')[0] + '?book_id=' + $('#book').val();
 			});
 
-            $('input[name="access"]').on('switchChange.bootstrapSwitch', function(event, state) {
-                console.log(state); // true | false
-
-                if( state) {
-                    loadArticles(-1);
-                    $('#book').prop( "disabled", state);
-                } else {
-                    loadArticles();
-                    $('#book').prop( "disabled", state);
-                }
-            });
+//            $('input[name="access"]').on('switchChange.bootstrapSwitch', function(event, state) {
+//                console.log(state); // true | false
+//
+//                if( state) {
+//                    loadArticles(-1);
+//                    $('#book').prop( "disabled", state);
+//                } else {
+//                    loadArticles();
+//                    $('#book').prop( "disabled", state);
+//                }
+//            });
 		});
 	</script>
 @endsection
