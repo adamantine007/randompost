@@ -5,6 +5,12 @@
     <div class="row">
 
         <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+            <h3 class="h3-list" style="margin-bottom: 0">
+                <a href="{{ action('BookController@show', $book) }}"> Back to {{ $book->name }}</a>
+            </h3>
+        </div>
+
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
         	<p class="datetime">{{ $article->created_at }}</p>
         </div>
 
