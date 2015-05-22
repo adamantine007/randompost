@@ -23,6 +23,10 @@
                     <a href="/books"><i class="fa fa-book fa-3x"></i></a>
                 </div>
 
+                <div class="col-lg-1 col-md-1 col-sm-1 col-xs-1">
+                    <a href="/search"><i class="fa fa-search fa-3x"></i></a>
+                </div>
+
                 <div class="col-xs-1 col-sm-1 col-md-1 col-lg-1">
                     <a href="/auth/logout"><i class="fa fa-sign-out fa-3x"></i></a>
                 </div>

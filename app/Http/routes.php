@@ -19,6 +19,9 @@ Route::resource('articles', 'ArticleController');
 Route::resource('books', 'BookController');
 Route::post('books/{books}/access-change', 'BookController@changeAccess');
 
+Route::get('/search', '\App\Http\Controllers\SearchController@index');
+Route::post('/search', '\App\Http\Controllers\SearchController@result');
+
 Route::controllers([
 	'auth' => 'Auth\AuthController',
 	'password' => 'Auth\PasswordController',
