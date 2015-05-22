@@ -5,6 +5,7 @@ use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
 //use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Request;
 
 class SearchController extends Controller {
@@ -23,7 +24,7 @@ class SearchController extends Controller {
     {
         $query = Request::get('query');
 
-        $results = Article::whereRaw("MATCH (body) AGAINST (? IN BOOLEAN MODE)", array($query))->get();
+        $results = Auth::user()->articles()->whereRaw("MATCH (body) AGAINST (? IN BOOLEAN MODE)", array($query))->get();
 
         if(Request::ajax()) {
             return $results;
