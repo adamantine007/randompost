@@ -76,7 +76,9 @@ class BookController extends Controller {
 	public function show(Book $book)
 	{
 		$book->articles = $this->addDescription($book->articles()->get());
-		return view('book.show', compact('book'));
+//		return view('book.show', compact('book'));
+
+		return view('book.new-show', compact('book'));
 	}
 
 	/**
@@ -127,10 +129,22 @@ class BookController extends Controller {
 	{
 		if(count($articles) == 0) return [];
 
+        $short = 30;
+        $description = 200;
+
 		foreach($articles as $article)
 		{
+            if(mb_strlen($article['body']) > $short) {
+                $article['short'] = mb_substr(strip_tags($article['body']), 0, $short) . '...';
+            } else {
+                $article['short'] = strip_tags($article['body']);
+            }
 
-			$article['description'] = mb_substr(strip_tags($article['body']), 0, 500) . '...';
+            if(mb_strlen($article['body']) > $description) {
+                $article['description'] = mb_substr(strip_tags($article['body']), 0, $description) . '...';
+            } else {
+                $article['description'] = strip_tags($article['body']);
+            }
 		}
 
 		return $articles;

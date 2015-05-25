@@ -6,6 +6,7 @@
 
     <link href="{{ asset('/css/app.css') }}" rel="stylesheet">
     {{--<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css" rel="stylesheet">--}}
+    <link rel="stylesheet" type="text/css" href="/css/accordion.css" />
 
     <!-- Fonts -->
     <link href='//fonts.googleapis.com/css?family=Roboto:400,300' rel='stylesheet' type='text/css'>
