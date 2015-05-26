@@ -129,7 +129,8 @@ body {
   margin: 1% 0;
   border: 1px solid #dddddd;
   border-radius: 5px;
-  padding: 0 226px;
+  padding: 0 242px;
+  font-size: 4.8em;
 }
 
 #next-btn:active,
@@ -6438,7 +6439,7 @@ label,
   }
 
   #next-btn {
-    padding: 0 257px;
+    padding: 0 273px;
   }
 }
 
@@ -6456,7 +6457,7 @@ label,
   }
 
   #next-btn {
-    padding: 0 246px;
+    padding: 0 262px;
   }
 }
 
@@ -6533,7 +6534,7 @@ label,
   }
 
   #next-btn {
-    padding: 0 99px;
+    padding: 0 115px;
   }
 
   .main {

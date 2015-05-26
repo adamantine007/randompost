@@ -40,7 +40,8 @@
 
             <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12" align="center">
                 <div class="fixed fixedDiceButtonHome">
-                    {!! Form::image('/img/Dice-100.png', null, ['id' => 'next-btn', 'style' => '']) !!}
+                    {{--{!! Form::image('/img/Dice-100.png', null, ['id' => 'next-btn', 'style' => '']) !!}--}}
+                    {!! Form::button('<i class="fa fa-random"></i>', ['type' => 'button', 'id' => 'next-btn', 'class' => 'btn-block']) !!}
                 </div>
 
             </div>
