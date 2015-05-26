@@ -2,7 +2,24 @@
 
 @section('content')
 
-    @include('partials.index-header', ['actionName' => 'BookController@create', 'headTitle' => 'Books'])
+    {{--@include('partials.index-header', ['actionName' => 'BookController@create', 'headTitle' => 'Books'])--}}
+
+    @include('partials.header-add-button', ['link' => action('BookController@create')])
+
+    <div class="row">
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+            <h2 class="h2-head">Books</h2>
+        </div>
+
+        <div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                <hr class="hr-list"/>
+            </div>
+        </div>
+    </div>
+
+
+
 
     <div class="row">
         <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
