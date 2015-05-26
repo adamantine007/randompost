@@ -28,7 +28,7 @@
             <div class="row">
 
                 <div class="col-xs-11 col-sm-11 col-md-11 col-lg-11">
-                    <h3 class="h3-list">
+                    <h3 class="h3-list" style="padding-top: 10px;">
                         <a href="{{ action('BookController@show', ['id' => $book->id]) }}">
                             {{ $book->name }}
                         </a>
@@ -53,9 +53,9 @@
                     </div>
                 </div>
 
-                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-10">
-                    {!! Form::checkbox('access', 1, $book->access, ['data-on-text' => 'Public', 'data-off-text' => 'Private', 'id' => 'access-'.$book->id]) !!}
-                </div>
+                {{--<div class="col-xs-12 col-sm-12 col-md-12 col-lg-10">--}}
+                    {{--{!! Form::checkbox('access', 1, $book->access, ['data-on-text' => 'Public', 'data-off-text' => 'Private', 'id' => 'access-'.$book->id]) !!}--}}
+                {{--</div>--}}
 
                 <div class="row">
                     <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
@@ -75,35 +75,35 @@
 
 @endsection
 
-@section('footer')
-    <script>
-        $(function () {
-            $("input[name='access']").bootstrapSwitch();
+{{--@section('footer')--}}
+    {{--<script>--}}
+        {{--$(function () {--}}
+            {{--$("input[name='access']").bootstrapSwitch();--}}
 
-            $('input[name="access"]').on('switchChange.bootstrapSwitch', function(event, state) {
+            {{--$('input[name="access"]').on('switchChange.bootstrapSwitch', function(event, state) {--}}
 
-                if(state) {
-                    var access = 1;
-                } else {
-                    var access = 0;
-                }
+                {{--if(state) {--}}
+                    {{--var access = 1;--}}
+                {{--} else {--}}
+                    {{--var access = 0;--}}
+                {{--}--}}
 
-                var id = $(this).attr('id').split('-')[1];
-                var url = '/books/' + id + '/access-change';
-                var $_token = "{{ csrf_token() }}";
+                {{--var id = $(this).attr('id').split('-')[1];--}}
+                {{--var url = '/books/' + id + '/access-change';--}}
+                {{--var $_token = "{{ csrf_token() }}";--}}
 
-                var data = {
-                    id: id,
-                    access: access,
-                    _token: $_token
-                };
+                {{--var data = {--}}
+                    {{--id: id,--}}
+                    {{--access: access,--}}
+                    {{--_token: $_token--}}
+                {{--};--}}
 
-                $.ajax({
-                    type: "POST",
-                    url: url,
-                    data: data
-                });
-            });
-        });
-    </script>
-@endsection
+                {{--$.ajax({--}}
+                    {{--type: "POST",--}}
+                    {{--url: url,--}}
+                    {{--data: data--}}
+                {{--});--}}
+            {{--});--}}
+        {{--});--}}
+    {{--</script>--}}
+{{--@endsection--}}
