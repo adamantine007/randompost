@@ -16,10 +16,10 @@
 
 @endsection
 
-@section('footer')
-    <script>
-        $(function () {
-            $("[name='access']").bootstrapSwitch();
-        });
-    </script>
-@endsection
+{{--@section('footer')--}}
+    {{--<script>--}}
+        {{--$(function () {--}}
+            {{--$("[name='access']").bootstrapSwitch();--}}
+        {{--});--}}
+    {{--</script>--}}
+{{--@endsection--}}

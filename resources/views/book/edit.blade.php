@@ -6,7 +6,7 @@
 
         <div class="row">
             <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12" align="center">
-                {!! Form::button('<i class="fa fa-floppy-o fa-4x"></i>', ['type' => 'submit', 'class' => 'iconPlusAsButton btn-block']) !!}
+                {!! Form::button('<i class="fa fa-floppy-o fa-3x"></i>', ['type' => 'submit', 'class' => 'iconPlusAsButton btn-block']) !!}
             </div>
         </div>
 
@@ -16,10 +16,10 @@
 
 @endsection
 
-@section('footer')
-    <script>
-        $(function () {
-            $("[name='access']").bootstrapSwitch();
-        });
-    </script>
-@endsection
+{{--@section('footer')--}}
+    {{--<script>--}}
+        {{--$(function () {--}}
+            {{--$("[name='access']").bootstrapSwitch();--}}
+        {{--});--}}
+    {{--</script>--}}
+{{--@endsection--}}

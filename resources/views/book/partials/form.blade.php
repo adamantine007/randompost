@@ -11,7 +11,7 @@
         </div>
     </div>
 
-    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-        {!! Form::checkbox('access', 1, 0, ['data-on-text' => 'Public', 'data-off-text' => 'Private']) !!}
-    </div>
+    {{--<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">--}}
+        {{--{!! Form::checkbox('access', 1, 0, ['data-on-text' => 'Public', 'data-off-text' => 'Private']) !!}--}}
+    {{--</div>--}}
 </div>
