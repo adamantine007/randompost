@@ -80,9 +80,9 @@
 
 //            $("[name='access']").bootstrapSwitch();
 
-            if($("[name='access']").prop("checked")) {
-                $('#book').prop( "disabled", true)
-            }
+//            if($("[name='access']").prop("checked")) {
+//                $('#book').prop( "disabled", true)
+//            }
 
 			$('#book').select2({
 				theme: "classic"
@@ -142,6 +142,7 @@
 			function showNextArticle() {
 				if (currentArticle + 1 > countOfArticles) {
 					currentArticle = 0;
+                    articles = shuffle(articles);
 				}
 
 				showArticle(articles[currentArticle]);
