@@ -42,7 +42,7 @@ body {
 
 .fixedEditButtonHome {
   position: fixed;
-  top: 267px;
+  top: 263px;
   /*bottom: 0;*/
   right: 0;
   z-index: 2;
@@ -6543,6 +6543,6 @@ label,
   }
 
   .fixedEditButtonHome {
-    top: 251px;
+    top: 247px;
   }
 }
