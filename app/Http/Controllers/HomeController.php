@@ -1,5 +1,6 @@
 <?php namespace App\Http\Controllers;
 
+use App\Article;
 use App\Book;
 
 class HomeController extends Controller {
@@ -31,7 +32,6 @@ class HomeController extends Controller {
 	 */
 	public function index()
 	{
-//        dd(\Auth::user());
         if(\Auth::user() == null) {
             $books = Book::where('id', '=', 0)->lists('name', 'id');
         } else {
@@ -71,4 +71,15 @@ class HomeController extends Controller {
 		return view('home', compact('books', 'article'));
 
 	}
+
+    public function deleteArticle()
+    {
+        $article = Article::find(\Request::get('article_id'));
+        if(\Auth::id() == $article['user_id']) {
+            $article->delete();
+            return 'true';
+        } else {
+            return 'Access denied!';
+        }
+    }
 }

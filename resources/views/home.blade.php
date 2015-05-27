@@ -15,9 +15,17 @@
             </div>
 
             <div class="fixedEditButtonHome">
-                <a href="/articles/">
+                <a href="/articles/" style="display: block">
                     <i class="fa fa-pencil-square-o fa-3x editIconInLinkGroupButton"></i>
                 </a>
+
+                {{--<br/>--}}
+
+                <a href="/articles/" style="display: block" id="deleteArticle">
+                    <i class="fa fa-trash-o fa-3x editIconInLinkGroupButton"></i>
+                </a>
+
+
             </div>
 
             {!! Form::open(['action' => 'HomeController@getRandomNote']) !!}
@@ -77,13 +85,6 @@
 @section('footer')
 	<script>
 		$(function () {
-
-//            $("[name='access']").bootstrapSwitch();
-
-//            if($("[name='access']").prop("checked")) {
-//                $('#book').prop( "disabled", true)
-//            }
-
 			$('#book').select2({
 				theme: "classic"
 			});
@@ -92,15 +93,9 @@
 
 			loadArticles();
 
-			function getArticles(id) {
+			function getArticles() {
 				var $_token = "{{ csrf_token() }}";
-                var book_id;
-
-                if (id !== undefined) {
-                    book_id = id;
-                } else {
-                    book_id = $('#book').val();
-                }
+                var book_id = $('#book').val();
 
 				return $.ajax({
 					type: 'POST',
@@ -109,13 +104,23 @@
 				});
 			}
 
-			function loadArticles(id) {
-				getArticles(id).success(function (data) {
+            function deleteArticle(id) {
+                var $_token = "{{ csrf_token() }}";
+
+                return $.ajax({
+                    type: 'POST',
+                    url: '{{ action('HomeController@deleteArticle') }}',
+                    data: { article_id: id, _token: $_token }
+                });
+            }
+
+			function loadArticles() {
+				getArticles().success(function (data) {
 					articles = shuffle(data);
 					countOfArticles = articles.length;
 					currentArticle = 0;
 
-					showArticle(articles[currentArticle])
+                    showArticle(articles[currentArticle]);
 				});
 			}
 
@@ -125,27 +130,32 @@
 			};
 
 			function showArticle(article) {
+                console.log('Show - ' + currentArticle + ' : ' + article.id);
                 if(article == undefined) {
                     $('.article-bg').empty();
                     $('.datetime-col').empty();
+                    $('.btn-group-vertical').empty();
                 } else {
                     $('.fixedEditButtonHome a')[0].href = '/articles/' + articles[currentArticle].id + '/edit';
 
-                    currentArticle++;
 
                     $('.article-bg').empty().append(article.body);
                     $('.datetime-col').empty().append(article.created_at);
                 }
 			}
 
-
 			function showNextArticle() {
-				if (currentArticle + 1 > countOfArticles) {
-					currentArticle = 0;
-                    articles = shuffle(articles);
-				}
-
-				showArticle(articles[currentArticle]);
+                console.log(countOfArticles);
+                if( countOfArticles != 1) {
+                    if (currentArticle + 1 == countOfArticles) {
+                        loadArticles();
+                        console.log('load');
+                    } else {
+                        currentArticle++;
+                        console.log('Next show - ' + currentArticle + ' : ' + articles[currentArticle].id);
+                        showArticle(articles[currentArticle]);
+                    }
+                }
 			}
 
 			$(document).on('click', '#next-btn', function (e) {
@@ -153,22 +163,23 @@
 				showNextArticle();
 			});
 
+            $(document).on('click', '#deleteArticle', function (e) {
+                e.preventDefault();
+
+                if(confirm('Are you sure? - ' + articles[currentArticle].id)) {
+                    deleteArticle(articles[currentArticle].id).success(function(data) {
+                        console.log(data);
+                    });
+
+                    showNextArticle();
+                }
+            });
+
+
 			$('#book').on('change', function() {
 				loadArticles();
 				$('a.btn')[0].href = $('a.btn')[0].href.split('?')[0] + '?book_id=' + $('#book').val();
 			});
-
-//            $('input[name="access"]').on('switchChange.bootstrapSwitch', function(event, state) {
-//                console.log(state); // true | false
-//
-//                if( state) {
-//                    loadArticles(-1);
-//                    $('#book').prop( "disabled", state);
-//                } else {
-//                    loadArticles();
-//                    $('#book').prop( "disabled", state);
-//                }
-//            });
 		});
 	</script>
 @endsection

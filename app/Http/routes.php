@@ -13,6 +13,7 @@
 
 Route::get('/', 'HomeController@index');
 Route::post('/', 'HomeController@getRandomNote');
+Route::post('/delete', 'HomeController@deleteArticle');
 
 
 Route::resource('articles', 'ArticleController');
