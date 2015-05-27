@@ -130,7 +130,6 @@
 			};
 
 			function showArticle(article) {
-                console.log('Show - ' + currentArticle + ' : ' + article.id);
                 if(article == undefined) {
                     $('.article-bg').empty();
                     $('.datetime-col').empty();
@@ -145,14 +144,12 @@
 			}
 
 			function showNextArticle() {
-                console.log(countOfArticles);
                 if( countOfArticles != 1) {
                     if (currentArticle + 1 == countOfArticles) {
                         loadArticles();
                         console.log('load');
                     } else {
                         currentArticle++;
-                        console.log('Next show - ' + currentArticle + ' : ' + articles[currentArticle].id);
                         showArticle(articles[currentArticle]);
                     }
                 }
@@ -166,7 +163,7 @@
             $(document).on('click', '#deleteArticle', function (e) {
                 e.preventDefault();
 
-                if(confirm('Are you sure? - ' + articles[currentArticle].id)) {
+                if(confirm('Are you sure?')) {
                     deleteArticle(articles[currentArticle].id).success(function(data) {
                         console.log(data);
                     });
