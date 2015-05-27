@@ -18,5 +18,7 @@
 	@include('partials.footer-scripts')
 
 	@yield('footer')
+
+    @include('partials.yandex')
 </body>
 </html>
