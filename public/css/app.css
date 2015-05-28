@@ -8,6 +8,11 @@ body {
   margin: 0;
 }
 
+.my-footer{
+    float: right;
+    padding: 15px;
+}
+
 .bg-white {
     background-color: #ffffff;
     height: 200px;
@@ -6514,7 +6519,11 @@ label,
 
   .navbar {
     min-height: 30px;
-    margin-bottom: 5px;
+    /*margin-bottom: 5px;*/
+  }
+
+  .my-footer{
+      padding: 5px;
   }
 
   .editIconInLinkGroupButton {
