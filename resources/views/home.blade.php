@@ -59,7 +59,7 @@
 
 		@if( ! empty($article))
             <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 datetime-col">
-                {{ $article->created_at }}
+                {{ $article->created }}
             </div>
 
 			<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 article-col">
@@ -139,7 +139,7 @@
 
 
                     $('.article-bg').empty().append(article.body);
-                    $('.datetime-col').empty().append(article.created_at);
+                    $('.datetime-col').empty().append(article.created);
                 }
 			}
 

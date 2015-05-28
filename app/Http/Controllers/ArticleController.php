@@ -59,15 +59,12 @@ class ArticleController extends Controller {
 	 */
 	public function store(ArticleRequest $request)
 	{
-//        dd($request->get('prev_url'));
-
 		$article = new Article($request->all());
 		$article['book_id'] = $request->get('book_id');
 
-		\Auth::user()->articles()->save($article);
+        $article = HomeController::diffForHumans(\Auth::user()->articles()->save($article));
 
         if($request->get('prev_url') == "" or $request->get('prev_url') == "articles") {
-//            $books = \Auth::user()->books()->lists('name', 'id');
             $books = Book::where('user_id', '=', \Auth::id())->orWhere('id', '=', 0)->lists('name', 'id');
             return view('home', compact('article', 'books'));
         } else {

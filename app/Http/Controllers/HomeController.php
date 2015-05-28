@@ -48,7 +48,7 @@ class HomeController extends Controller {
             $books = Book::whereAccess(1)->get();
 
             foreach ($books as $book) {
-                $articles_collection[] = $book->articles()->get();
+                $articles_collection[] = HomeController::diffForHumans($book->articles()->get());
             }
 
             foreach ($articles_collection as $collection) {
@@ -58,7 +58,7 @@ class HomeController extends Controller {
 
             }
         } else {
-            $articles = Book::find(\Request::get('book_id'))->articles()->get();
+            $articles = HomeController::diffForHumans(Book::find(\Request::get('book_id'))->articles()->get());
         }
 
 		if(\Request::ajax()) {
@@ -81,5 +81,20 @@ class HomeController extends Controller {
         } else {
             return 'Access denied!';
         }
+    }
+
+    public static function diffForHumans($entities)
+    {
+        if(count($entities) == 0) {
+            return $entities;
+        } elseif(count($entities) == 1) {
+            $entities['created'] = $entities['created_at']->diffForHumans();
+        } else {
+            foreach ($entities as $entity) {
+                $entity['created'] = $entity['created_at']->diffForHumans();
+            }
+        }
+
+        return $entities;
     }
 }
