@@ -21,6 +21,7 @@ body {
 
 .main {
   margin-top: 55px;
+  padding-bottom: 41px;
 }
 
 .fixed {
@@ -6549,6 +6550,7 @@ label,
 
   .main {
     margin-top: 36px;
+      padding-bottom: 21px;
   }
 
   .fixedEditButtonHome {
