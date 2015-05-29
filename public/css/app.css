@@ -9,8 +9,11 @@ body {
 }
 
 .my-footer{
-    float: right;
     padding: 15px;
+}
+
+.my-footer p {
+    text-align: right;
 }
 
 .bg-white {
@@ -6524,7 +6527,8 @@ label,
   }
 
   .my-footer{
-      padding: 5px;
+      padding: 7px;
+      font-size: 0.8em;
   }
 
   .editIconInLinkGroupButton {

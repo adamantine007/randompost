@@ -3,7 +3,7 @@
         <div class="row" style="height: 30px;">
 
             <div class="my-footer">
-                Contact us: contact@notesrandom.com
+                <p>contact@notesrandom.com</p>
             </div>
 
         </div>
