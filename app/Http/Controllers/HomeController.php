@@ -2,6 +2,9 @@
 
 use App\Article;
 use App\Book;
+use ErrorException;
+use Illuminate\Support\Facades\Request;
+use League\Flysystem\Exception;
 
 class HomeController extends Controller {
 
@@ -32,12 +35,27 @@ class HomeController extends Controller {
 	 */
 	public function index()
 	{
+        $bookId = Request::get('book_id');
+//        dd($bookId);
+
         if(\Auth::user() == null) {
             $books = Book::where('id', '=', 0)->lists('name', 'id');
         } else {
             $books = Book::where('user_id', '=', \Auth::id())->orWhere('id', '=', 0)->lists('name', 'id');
         }
 
+        if(array_key_exists($bookId, $books)) {
+            $book = $books[$bookId];
+            unset($books[$bookId]);
+
+            $newBooks = [];
+            $newBooks[$bookId] = $book;
+            foreach($books as $key => $value) {
+                $newBooks[$key] = $value;
+            }
+
+            $books = $newBooks;
+        }
 
         return view('home', compact('books'));
 	}
